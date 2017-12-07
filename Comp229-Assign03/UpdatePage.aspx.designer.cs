@@ -10,16 +10,25 @@
 namespace Comp229_Assign03 {
     
     
-    public partial class _Default {
+    public partial class UpdatePage {
         
         /// <summary>
-        /// StudentsGrid control.
+        /// studentIDTxt control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView StudentsGrid;
+        protected global::System.Web.UI.WebControls.TextBox studentIDTxt;
+        
+        /// <summary>
+        /// studentIDTxtReq control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator studentIDTxtReq;
         
         /// <summary>
         /// lastNameTxt control.
@@ -58,12 +67,30 @@ namespace Comp229_Assign03 {
         protected global::System.Web.UI.WebControls.RequiredFieldValidator firstMidNameReq;
         
         /// <summary>
-        /// registerBtn control.
+        /// enrollmentDateTxt control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button registerBtn;
+        protected global::System.Web.UI.WebControls.TextBox enrollmentDateTxt;
+        
+        /// <summary>
+        /// enrollmentDateTxtReq control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator enrollmentDateTxtReq;
+        
+        /// <summary>
+        /// updateBtn control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button updateBtn;
     }
 }
