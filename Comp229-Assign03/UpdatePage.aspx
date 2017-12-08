@@ -6,7 +6,7 @@
         <tr>
             <td>Student ID</td>
             <td>
-                <asp:TextBox ID="studentIDTxt" runat="server"></asp:TextBox>
+                <asp:TextBox ID="studentIDTxt" ReadOnly="true" runat="server"></asp:TextBox>
                 <asp:RequiredFieldValidator ID="studentIDTxtReq" runat="server"
                     ControlToValidate="studentIDTxt"
                     ErrorMessage="This field is Required" />

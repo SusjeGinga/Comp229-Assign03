@@ -9,34 +9,32 @@ using System.Configuration;
 
 namespace Comp229_Assign03
 {
-    public partial class UpdatePage : System.Web.UI.Page
+    public partial class CoursePage : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            String query = "SELECT * FROM Students WHERE StudentID = 300000";
+            //String query = "SELECT Students.StudentID, Students.LastName, Students.FirstMidName, Students.EnrollmentDate" +
+            //    " FROM Students" +
+            //   "INNER JOIN Enrollments ON Enrollments.StudentID = Students.StudentID WHERE Enrollments.CourseID = 4000";
 
-            String connectionString = ConfigurationManager.ConnectionStrings["Comp229Assign03"].ConnectionString;
-            SqlConnection conn = new SqlConnection(connectionString);
-            SqlCommand comm = new SqlCommand(query, conn);
+            //String connectionString = ConfigurationManager.ConnectionStrings["Comp229Assign03"].ConnectionString;
+            //SqlConnection conn = new SqlConnection(connectionString);
+            //SqlCommand comm = new SqlCommand(query, conn);
 
-            conn.Open();
-            SqlDataReader reader = comm.ExecuteReader();
-            if (reader.Read())
-            {
-                studentIDTxt.Text = Convert.ToString(reader["StudentID"]);
-                lastNameTxt.Text = (String)reader["LastName"];
-                firstMidNameTxt.Text = (String)reader["FirstMidName"];
-                enrollmentDateTxt.Text = Convert.ToString(reader["EnrollmentDate"]);
-            }
-
-
+            //conn.Open();
+            //SqlDataReader reader = comm.ExecuteReader();
+            //if (reader.Read())
+            //{
+            //    CourseStudentGrid.DataSource = reader;
+            //    CourseStudentGrid.DataBind();
+            //    reader.Close();
+            //}
+            //conn.Close();
         }
-
-
-        protected void UpdateBtn_Click(object sender, EventArgs e)
+        protected void AddStudentBnt_Click(object sender, EventArgs e)
         {
             String query = "UPDATE Students SET LastName = @lastNameTxt, FirstMidName = @firstMidNameTxt" +
-                " WHERE StudentID = 300000";
+                    " WHERE StudentID = 300000";
 
             String connectionString = ConfigurationManager.ConnectionStrings["Comp229Assign03"].ConnectionString;
             SqlConnection conn = new SqlConnection(connectionString);
@@ -55,7 +53,6 @@ namespace Comp229_Assign03
             comm.ExecuteNonQuery();
 
             conn.Close();
-
         }
     }
 }

@@ -3,19 +3,20 @@
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
     <h1>Landing Page</h1>
 
-    <asp:GridView ID="StudentsGrid" runat="server" AutoGenerateColumns="false">
+    <asp:GridView ID="StudentsGrid" runat="server" AutoGenerateColumns="False">
         <Columns>
-            <asp:BoundField DataField="StudentID" HeaderText="Student ID" />
+            <asp:HyperLinkField DataTextField="StudentID" HeaderText="Student ID" DataNavigateUrlFields="StudentID" 
+                DataNavigateUrlFormatString="StudentPage.aspx?StudentID={0}" />
             <asp:BoundField DataField="LastName" HeaderText="Last Name" />
             <asp:BoundField DataField="FirstMidName" HeaderText="First Mid Name" />
-            <asp:BoundField DataField="EnrollmentDate" HeaderText="Enrollment Date" />
+            <asp:BoundField DataField="EnrollmentDate" HeaderText="Enrollment Date" DataFormatString="{0:MM-dd-yyyy}" />
         </Columns>
     </asp:GridView>
     <br /><br />
 
     <fieldset>
         <legend>Register</legend>
-        <p>Please fill your information to all the blanks</p>
+        <p>Note: Please fill your information to all the blanks</p>
         <table>
             <tr>
                 <td>Last Name</td>
@@ -34,6 +35,16 @@
                     <asp:TextBox ID="firstMidNameTxt" runat="server"></asp:TextBox>
                     <asp:RequiredFieldValidator ID="firstMidNameReq" runat="server"
                         ControlToValidate="firstMidNameTxt"
+                        ErrorMessage="This field is Required" />
+                </td>
+            </tr>
+            <tr>
+
+            <td>Enrollment date</td>
+                <td>
+                    <asp:TextBox ID="enrollmentDateTxt" runat="server" TextMode="Date"></asp:TextBox>
+                    <asp:RequiredFieldValidator ID="enrollmentDateReq" runat="server"
+                        ControlToValidate="enrollmentDateTxt"
                         ErrorMessage="This field is Required" />
                 </td>
             </tr>

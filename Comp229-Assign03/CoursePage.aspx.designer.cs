@@ -10,16 +10,16 @@
 namespace Comp229_Assign03 {
     
     
-    public partial class _Default {
+    public partial class CoursePage {
         
         /// <summary>
-        /// StudentsGrid control.
+        /// CourseStudentGrid control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView StudentsGrid;
+        protected global::System.Web.UI.WebControls.GridView CourseStudentGrid;
         
         /// <summary>
         /// lastNameTxt control.
@@ -67,21 +67,21 @@ namespace Comp229_Assign03 {
         protected global::System.Web.UI.WebControls.TextBox enrollmentDateTxt;
         
         /// <summary>
-        /// enrollmentDateReq control.
+        /// enrollmentDateTxtReq control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator enrollmentDateReq;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator enrollmentDateTxtReq;
         
         /// <summary>
-        /// registerBtn control.
+        /// addStudentBnt control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button registerBtn;
+        protected global::System.Web.UI.WebControls.Button addStudentBnt;
     }
 }

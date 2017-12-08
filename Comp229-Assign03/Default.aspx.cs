@@ -21,7 +21,7 @@ namespace Comp229_Assign03
 
             conn.Open();
             SqlDataReader reader = comm.ExecuteReader();
-            if (reader.Read())
+            //if (reader.Read())
             {
                 StudentsGrid.DataSource = reader;
                 StudentsGrid.DataBind();
@@ -32,15 +32,12 @@ namespace Comp229_Assign03
 
         protected void RegisterBtn_Click(object sender, EventArgs e)
         {
-            String query = "INSERT INTO Students(LastName, FirstMidName)" +
-                "VALUES(@lastNameTxt, @firstMidNameTxt)";
+            String query = "INSERT INTO Students(LastName, FirstMidName, EnrollmentDate)" +
+                "VALUES(@lastNameTxt, @firstMidNameTxt, @enrollmentDateTxt)";
 
             String connectionString = ConfigurationManager.ConnectionStrings["Comp229Assign03"].ConnectionString;
             SqlConnection conn = new SqlConnection(connectionString);
             SqlCommand comm = new SqlCommand(query, conn);
-
-            //comm.Parameters.Add("@", System.Data.SqlDbType.Int);
-            //comm.Parameters["@"].Value = Last+1;
 
             comm.Parameters.Add("@lastNameTxt", System.Data.SqlDbType.NVarChar);
             comm.Parameters["@lastNameTxt"].Value = lastNameTxt.Text;
@@ -48,13 +45,14 @@ namespace Comp229_Assign03
             comm.Parameters.Add("@firstMidNameTxt", System.Data.SqlDbType.NVarChar);
             comm.Parameters["@firstMidNameTxt"].Value = firstMidNameTxt.Text;
 
-            //comm.Parameters.Add("@enrollmentDateTxt", System.Data.SqlDbType.NVarChar);
-            //comm.Parameters["@enrollmentDateTxt"].Value = enrollmentDateTxt.Text;
+            comm.Parameters.Add("@enrollmentDateTxt", System.Data.SqlDbType.Date);
+            comm.Parameters["@enrollmentDateTxt"].Value = Convert.ToDateTime(enrollmentDateTxt.Text);
 
             conn.Open();
             comm.ExecuteNonQuery();
 
             conn.Close();
+            Response.Redirect(Request.Path);
         }
     }
 }
