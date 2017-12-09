@@ -36,8 +36,6 @@ namespace Comp229_Assign03
             SqlDataReader studentReader = comm.ExecuteReader();
 
             nameList.DataSource = studentReader;
-            //nameList.DataTextField = "Full Name";
-            //nameList.DataValueField = "LastName" + " " + "FirstMidName";
             nameList.DataBind();
             conn.Close();
         }
@@ -110,10 +108,15 @@ namespace Comp229_Assign03
 
             comm.Parameters.Add("@studentID", System.Data.SqlDbType.Int);
             comm.Parameters["@studentID"].Value = studentID;
+
+            comm.Parameters.Add("@courseID", System.Data.SqlDbType.Int);
+            comm.Parameters["@courseID"].Value = courseID;
+
             conn.Open();
             comm.ExecuteNonQuery();
 
             conn.Close();
+            BindData(conn, courseID);
         }
     }
 }

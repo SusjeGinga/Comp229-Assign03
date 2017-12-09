@@ -3,8 +3,10 @@
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
     <h1>Landing Page</h1>
 
+    <%--Display the list of all students--%>
     <asp:GridView ID="StudentsGrid" runat="server" AutoGenerateColumns="False">
         <Columns>
+            <%--Student ID will link to StudentPage--%>
             <asp:HyperLinkField DataTextField="StudentID" HeaderText="Student ID" DataNavigateUrlFields="StudentID" 
                 DataNavigateUrlFormatString="StudentPage.aspx?StudentID={0}" />
             <asp:BoundField DataField="LastName" HeaderText="Last Name" />
@@ -14,6 +16,7 @@
     </asp:GridView>
     <br /><br />
 
+    <%--Function that allows user to add student--%>
     <fieldset>
         <legend>Register</legend>
         <p>Note: Please fill your information to all the blanks</p>
@@ -27,9 +30,7 @@
                         ErrorMessage="This field is Required" />
                 </td>
             </tr>
-
             <tr>
-
                 <td>Middle Name</td>
                 <td>
                     <asp:TextBox ID="firstMidNameTxt" runat="server"></asp:TextBox>
@@ -54,46 +55,6 @@
                     <asp:Button ID="registerBtn" OnClick="RegisterBtn_Click" runat="server" Text="Register" />
                 </td>
             </tr>
-
         </table>
     </fieldset>
-
-
-
-    <%--<div class="jumbotron">
-        <h1>ASP.NET</h1>
-        <p class="lead">ASP.NET is a free web framework for building great Web sites and Web applications using HTML, CSS, and JavaScript.</p>
-        <p><a href="http://www.asp.net" class="btn btn-primary btn-lg">Learn more &raquo;</a></p>
-    </div>
-
-    <div class="row">
-        <div class="col-md-4">
-            <h2>Getting started</h2>
-            <p>
-                ASP.NET Web Forms lets you build dynamic websites using a familiar drag-and-drop, event-driven model.
-            A design surface and hundreds of controls and components let you rapidly build sophisticated, powerful UI-driven sites with data access.
-            </p>
-            <p>
-                <a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301948">Learn more &raquo;</a>
-            </p>
-        </div>
-        <div class="col-md-4">
-            <h2>Get more libraries</h2>
-            <p>
-                NuGet is a free Visual Studio extension that makes it easy to add, remove, and update libraries and tools in Visual Studio projects.
-            </p>
-            <p>
-                <a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301949">Learn more &raquo;</a>
-            </p>
-        </div>
-        <div class="col-md-4">
-            <h2>Web Hosting</h2>
-            <p>
-                You can easily find a web hosting company that offers the right mix of features and price for your applications.
-            </p>
-            <p>
-                <a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301950">Learn more &raquo;</a>
-            </p>
-        </div>
-    </div>--%>
 </asp:Content>
