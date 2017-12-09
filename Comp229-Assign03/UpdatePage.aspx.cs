@@ -68,10 +68,7 @@ namespace Comp229_Assign03
             {
                 conn.Open(); //comm.
                 comm.ExecuteNonQuery();
-            } catch (SqlException exception)
-            {
-
-            }
+            } 
             finally
             {
 
