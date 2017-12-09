@@ -15,18 +15,18 @@
             
         </asp:DetailsView>
 
-        <asp:Button ID="Delete" runat="server" Text="Button" />
-
+        <asp:Button ID="Delete" runat="server" Text="Delete Student" OnClick="DeleteBtn_Click" />
+        <asp:Button ID="Update" runat="server" Text="Update Student" OnClick="UpdateBtn_Click" />
 
         <p>Student's courses: </p>
 
         <asp:GridView ID="coursesDetailsGrid" runat="server" AutoGenerateColumns="False">
             <Columns>
-                <asp:HyperLinkField DataTextField="StudentID" HeaderText="Student ID" DataNavigateUrlFields="StudentID"
-                    DataNavigateUrlFormatString="StudentPage.aspx?StudentID={0}" />
-                <asp:BoundField DataField="LastName" HeaderText="Last Name" />
-                <asp:BoundField DataField="FirstMidName" HeaderText="First Mid Name" />
-                <asp:BoundField DataField="EnrollmentDate" HeaderText="Enrollment Date" DataFormatString="{0:MM-dd-yyyy}" />
+                <asp:HyperLinkField DataTextField="CourseID" HeaderText="CourseID" DataNavigateUrlFields="CourseID"
+                    DataNavigateUrlFormatString="CoursePage.aspx?CourseID={0}" />
+                <asp:BoundField DataField="Title" HeaderText="Title" />
+                <asp:BoundField DataField="Credits" HeaderText="Credits" />
+                <asp:BoundField DataField="Grade" HeaderText="Grade" />                
             </Columns>
         </asp:GridView>
 
@@ -39,5 +39,5 @@
         </asp:DetailsView>--%>
 
         </fieldset>
-    <asp:Button ID="Update" runat="server" Text="Update Student" OnClick="UpdateBtn_Click" />
+    
 </asp:Content>

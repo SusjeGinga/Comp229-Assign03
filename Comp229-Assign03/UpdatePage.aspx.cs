@@ -13,11 +13,22 @@ namespace Comp229_Assign03
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            String query = "SELECT * FROM Students WHERE StudentID = 300000";
+            if (!IsPostBack) BindData();
+
+        }
+
+        private void BindData()
+        {
+            int studentID = Convert.ToInt32(Request.QueryString["StudentID"]);
+
+            String query = "SELECT * FROM Students WHERE StudentID = @studentID";
 
             String connectionString = ConfigurationManager.ConnectionStrings["Comp229Assign03"].ConnectionString;
             SqlConnection conn = new SqlConnection(connectionString);
             SqlCommand comm = new SqlCommand(query, conn);
+
+            comm.Parameters.Add("@studentID", System.Data.SqlDbType.Int);
+            comm.Parameters["@studentID"].Value = studentID;
 
             conn.Open();
             SqlDataReader reader = comm.ExecuteReader();
@@ -26,21 +37,24 @@ namespace Comp229_Assign03
                 studentIDTxt.Text = Convert.ToString(reader["StudentID"]);
                 lastNameTxt.Text = (String)reader["LastName"];
                 firstMidNameTxt.Text = (String)reader["FirstMidName"];
-                enrollmentDateTxt.Text = Convert.ToString(reader["EnrollmentDate"]);
+                enrollmentDateTxt.Text = ((DateTime)reader["EnrollmentDate"]).ToString("yyyy-MM-dd");
             }
-
-
         }
-
 
         protected void UpdateBtn_Click(object sender, EventArgs e)
         {
-            String query = "UPDATE Students SET LastName = @lastNameTxt, FirstMidName = @firstMidNameTxt" +
-                " WHERE StudentID = 300000";
+            
+            int studentID = Convert.ToInt32(Request.QueryString["StudentID"]);
+
+            String query = "UPDATE Students SET LastName = @lastNameTxt, FirstMidName = @firstMidNameTxt " +
+                " WHERE StudentID = @studentID";
 
             String connectionString = ConfigurationManager.ConnectionStrings["Comp229Assign03"].ConnectionString;
             SqlConnection conn = new SqlConnection(connectionString);
             SqlCommand comm = new SqlCommand(query, conn);
+
+            comm.Parameters.Add("@studentID", System.Data.SqlDbType.Int);
+            comm.Parameters["@studentID"].Value = studentID;
 
             comm.Parameters.Add("@lastNameTxt", System.Data.SqlDbType.NVarChar);
             comm.Parameters["@lastNameTxt"].Value = lastNameTxt.Text;
@@ -50,12 +64,19 @@ namespace Comp229_Assign03
 
             comm.Parameters.Add("@enrollmentDateTxt", System.Data.SqlDbType.NVarChar);
             comm.Parameters["@enrollmentDateTxt"].Value = enrollmentDateTxt.Text;
+            try
+            {
+                conn.Open(); //comm.
+                comm.ExecuteNonQuery();
+            } catch (SqlException exception)
+            {
 
-            conn.Open();
-            comm.ExecuteNonQuery();
+            }
+            finally
+            {
 
-            conn.Close();
-
+                conn.Close();
+            }
         }
     }
 }

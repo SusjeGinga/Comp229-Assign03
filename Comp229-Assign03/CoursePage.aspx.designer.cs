@@ -22,40 +22,13 @@ namespace Comp229_Assign03 {
         protected global::System.Web.UI.WebControls.GridView CourseStudentGrid;
         
         /// <summary>
-        /// lastNameTxt control.
+        /// nameList control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox lastNameTxt;
-        
-        /// <summary>
-        /// lastNameTxtReq control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator lastNameTxtReq;
-        
-        /// <summary>
-        /// firstMidNameTxt control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox firstMidNameTxt;
-        
-        /// <summary>
-        /// firstMidNameReq control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator firstMidNameReq;
+        protected global::System.Web.UI.WebControls.DropDownList nameList;
         
         /// <summary>
         /// enrollmentDateTxt control.
@@ -67,13 +40,13 @@ namespace Comp229_Assign03 {
         protected global::System.Web.UI.WebControls.TextBox enrollmentDateTxt;
         
         /// <summary>
-        /// enrollmentDateTxtReq control.
+        /// enrollmentDateReq control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator enrollmentDateTxtReq;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator enrollmentDateReq;
         
         /// <summary>
         /// addStudentBnt control.

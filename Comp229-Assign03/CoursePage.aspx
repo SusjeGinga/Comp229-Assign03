@@ -1,18 +1,16 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="CoursePage.aspx.cs" Inherits="Comp229_Assign03.CoursePage" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
-
-    <fieldset>
-            <p>Student's courses: </p>
-
-        <asp:GridView ID="CourseStudentGrid" runat="server" AutoGenerateColumns="false">
+    
+    <h1>Students in the courses</h1>
+    <fieldset>   
+        <asp:GridView ID="CourseStudentGrid" DataKeyNames="StudentID,CourseID" runat="server" AutoGenerateColumns="False" OnRowDeleting="CourseStudentGrid_RowDeleting">
             <Columns>
                 <asp:BoundField DataField="StudentID" HeaderText="Student ID" />
                 <asp:BoundField DataField="LastName" HeaderText="Last Name" />
                 <asp:BoundField DataField="FirstMidName" HeaderText="First Mid Name" />
                 <asp:BoundField DataField="EnrollmentDate" HeaderText="Enrollment Date" />
                 
-                <asp:HyperLinkField DataTextField="Delete" DataNavigateUrlFields="Delete" 
-                DataNavigateUrlFormatString="CoursePage.aspx?StudentID={0}" />
+                <asp:CommandField ShowDeleteButton="True" />
 
             </Columns>
         </asp:GridView>
@@ -20,36 +18,25 @@
         </fieldset>
     <fieldset>
         <legend>Add Student to course</legend>
-        <p>Note: Please fill your information to all the blanks</p>
+        
         <table>
             <tr>
-                <td>Last Name</td>
+                <td>Full Name</td>
                 <td>
-                    <asp:TextBox ID="lastNameTxt" runat="server"></asp:TextBox>
-                    <asp:RequiredFieldValidator ID="lastNameTxtReq" runat="server"
-                        ControlToValidate="lastNameTxt"
-                        ErrorMessage="This field is Required" />
+                    <asp:DropDownList ID="nameList" runat="server" DataValueField="StudentID"
+                      DataTextField="FullName" ></asp:DropDownList>
+                   <%-- DataTextField='<%# Eval("LastName")+" - "+Eval("FirstMidName") %>'--%>
                 </td>
             </tr>
 
-            <tr>
-
-                <td>Middle Name</td>
-                <td>
-                    <asp:TextBox ID="firstMidNameTxt" runat="server"></asp:TextBox>
-                    <asp:RequiredFieldValidator ID="firstMidNameReq" runat="server"
-                        ControlToValidate="firstMidNameTxt"
-                        ErrorMessage="This field is Required" />
-                </td>
-            </tr>
                     <tr>
-            <td>Enrollment Date</td>
-            <td>
-                <asp:TextBox ID="enrollmentDateTxt" runat="server"></asp:TextBox>
-                <asp:RequiredFieldValidator ID="enrollmentDateTxtReq" runat="server"
-                    ControlToValidate="enrollmentDateTxt"
-                    ErrorMessage="This field is Required" />
-            </td>
+            <td>Enrollment date</td>
+                <td>
+                    <asp:TextBox ID="enrollmentDateTxt" runat="server" TextMode="Date"></asp:TextBox>
+                    <asp:RequiredFieldValidator ID="enrollmentDateReq" runat="server"
+                        ControlToValidate="enrollmentDateTxt"
+                        ErrorMessage="This field is Required" />
+                </td>
         </tr>
             <tr>
                 <td></td>

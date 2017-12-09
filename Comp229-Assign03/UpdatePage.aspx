@@ -7,9 +7,6 @@
             <td>Student ID</td>
             <td>
                 <asp:TextBox ID="studentIDTxt" ReadOnly="true" runat="server"></asp:TextBox>
-                <asp:RequiredFieldValidator ID="studentIDTxtReq" runat="server"
-                    ControlToValidate="studentIDTxt"
-                    ErrorMessage="This field is Required" />
             </td>
         </tr>
         <tr>
@@ -35,7 +32,7 @@
         <tr>
             <td>Enrollment Date</td>
             <td>
-                <asp:TextBox ID="enrollmentDateTxt" runat="server"></asp:TextBox>
+                <asp:TextBox ID="enrollmentDateTxt" runat="server" TextMode="Date"></asp:TextBox>
                 <asp:RequiredFieldValidator ID="enrollmentDateTxtReq" runat="server"
                     ControlToValidate="enrollmentDateTxt"
                     ErrorMessage="This field is Required" />
