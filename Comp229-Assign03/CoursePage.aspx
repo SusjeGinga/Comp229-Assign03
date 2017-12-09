@@ -18,26 +18,36 @@
         </fieldset>
     <fieldset>
         <legend>Add Student to course</legend>
-        
+
         <table>
             <tr>
                 <td>Full Name</td>
                 <td>
                     <asp:DropDownList ID="nameList" runat="server" DataValueField="StudentID"
-                      DataTextField="FullName" ></asp:DropDownList>
-                   <%-- DataTextField='<%# Eval("LastName")+" - "+Eval("FirstMidName") %>'--%>
+                        DataTextField="FullName">
+                    </asp:DropDownList>
+                    <%-- DataTextField='<%# Eval("LastName")+" - "+Eval("FirstMidName") %>'--%>
                 </td>
             </tr>
 
-                    <tr>
-            <td>Enrollment date</td>
+            <tr>
+                <td>Enrollment date</td>
                 <td>
                     <asp:TextBox ID="enrollmentDateTxt" runat="server" TextMode="Date"></asp:TextBox>
                     <asp:RequiredFieldValidator ID="enrollmentDateReq" runat="server"
                         ControlToValidate="enrollmentDateTxt"
                         ErrorMessage="This field is Required" />
                 </td>
-        </tr>
+            </tr>
+            <tr>
+                <td>Grade</td>
+                <td>
+                    <asp:TextBox ID="gradeTxt" runat="server"></asp:TextBox>
+                    <asp:RequiredFieldValidator ID="gradeTxtReq" runat="server"
+                        ControlToValidate="gradeTxt"
+                        ErrorMessage="This field is Required" />
+                </td>
+            </tr>
             <tr>
                 <td></td>
                 <td>
